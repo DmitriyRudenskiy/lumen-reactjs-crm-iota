@@ -34,4 +34,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         // TODO: Implement can() method.
     }
+
+    public function getList()
+    {
+        return self::all();
+    }
+
+    public function getUser($id)
+    {
+        return self::find($id);
+    }
 }

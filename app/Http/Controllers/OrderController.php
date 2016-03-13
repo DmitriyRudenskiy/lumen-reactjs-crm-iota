@@ -12,15 +12,12 @@ use Laravel\Lumen\Routing\Controller;
  */
 class OrderController extends Controller
 {
-    /**
-     * @return \Illuminate\View\View
-     */
     public function index()
     {
-        return view('default.index', []);
+        return view('default.table', []);
     }
 
-    public function add()
+    public function create()
     {
         return view('default.form', []);
     }
@@ -37,8 +34,4 @@ class OrderController extends Controller
     }
 
 
-    public function table()
-    {
-        return view('default.table', []);
-    }
 }

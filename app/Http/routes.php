@@ -6,6 +6,16 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     $app->get('/form', ['as' => 'root', 'uses' =>  'DefaultController@form']);
     $app->get('/table', ['as' => 'root', 'uses' =>  'DefaultController@table']);
 
+    // пользователи
+    $app->get('/user/list', ['as' => 'user_list', 'uses' =>  'UserController@index']);
+    $app->get('/user/view/{id}', ['as' => 'user_view', 'uses' =>  'UserController@view']);
+    $app->post('/user/update', ['as' => 'user_update', 'uses' =>  'UserController@update']);
+
+    // заказчики
+    $app->get('/customer/list', ['as' => 'customer_list', 'uses' => 'CustomerController@index']);
+    $app->get('/customer/view/{id}', ['as' => 'customer_view', 'uses' => 'CustomerController@view']);
+    $app->post('/customer/update', ['as' => 'customer_update', 'uses' => 'CustomerController@update']);
+
     // работа с заказами
     $app->post('/order/add', ['as' => 'order_insert', 'uses' =>  'OrderController@insert']);
 });

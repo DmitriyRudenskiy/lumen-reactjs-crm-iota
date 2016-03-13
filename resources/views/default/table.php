@@ -2,7 +2,7 @@
 
 <?php include '../resources/views/layout/top.php' ?>
 
-<?php include '../resources/views/layout/_menu.php' ?>
+
 
     <div class="row">
         <div class="col-md-12">

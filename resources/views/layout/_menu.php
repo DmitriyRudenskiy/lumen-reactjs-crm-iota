@@ -1,34 +1,32 @@
-<!-- menu -->
-<div class="row" style="margin-top: 24px">
-    <div class="col-md-12">
-        <nav class="navbar navbar-default" role="navigation">
-
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <div class="navbar-collapse collapse" aria-expanded="false" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <?php if (!empty($menu) && $menu == 'answer_create') : ?>
-                        <li class="active"><a>Ответить на заявку</a></li>
-                    <?php else : ?>
-                        <li><a href="">Ответить на заявку</a></li>
-                    <?php endif; ?>
-
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <?php if (!empty($menu) && $menu == 'answer_create') : ?>
+                    <li class="active"><a>Ответить на заявку</a></li>
+                <?php else : ?>
                     <li><a href="#">Создать заказ</a></li>
-                    <li><a href="#">График исполнения</a></li>
-                    <li><a href="#">Пользователи</a></li>
-                    <li><a href="#">Заказчики</a></li>
+                <?php endif; ?>
 
-                    <li><a href="<?= route('user_logout') ?>">Выйти</a></li>
-                </ul>
-            </div>
+                <?php if (!empty($menu) && $menu == 'answer_create') : ?>
+                    <li class="active"><a>Ответить на заявку</a></li>
+                <?php else : ?>
+                    <li><a href="#">График исполнения</a></li>
+                <?php endif; ?>
+
+                <?php if (!empty($menu) && $menu == 'user') : ?>
+                    <li class="active"><a>Пользователи</a></li>
+                <?php else : ?>
+                    <li><a href="<?= route('user_list') ?>">Пользователи</a></li>
+                <?php endif; ?>
+
+                <?php if (!empty($menu) && $menu == 'customer') : ?>
+                    <li class="active"><a>Заказчики</a></li>
+                <?php else : ?>
+                    <li><a href="<?= route('customer_list') ?>">Заказчики</a></li>
+                <?php endif; ?>
+            </ul>
         </nav>
+        <h3 class="text-muted">CRM</h3>
     </div>
 </div>
-
