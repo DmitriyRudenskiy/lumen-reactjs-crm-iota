@@ -37,9 +37,11 @@ class OrderController extends Controller
         );
     }
 
-    public function view()
+    public function view($id)
     {
-        return view('order.view', []);
+        $order = $this->model->get($id);
+
+        return view('order.view', ['order' => $order]);
     }
 
     public function create()

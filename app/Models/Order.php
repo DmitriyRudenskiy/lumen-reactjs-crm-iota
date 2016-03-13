@@ -12,6 +12,11 @@ class Order extends Model
         return self::all();
     }
 
+    public function get($id)
+    {
+        return self::find($id);
+    }
+
     public function user()
     {
         return $this->belongsTo('App\Models\User', 'user_id');
