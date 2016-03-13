@@ -11,11 +11,16 @@ class Customer extends Model
 
     public function getList()
     {
-        return self::all();
+        return self::orderBy('name')->get();
     }
 
     public function get($id)
     {
         return self::find($id);
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class CustomerController extends Controller
 {
     /**
-     * @var User
+     * @var Customer
      */
     private $model;
 

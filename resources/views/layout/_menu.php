@@ -2,16 +2,16 @@
     <div class="header clearfix">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <?php if (!empty($menu) && $menu == 'answer_create') : ?>
-                    <li class="active"><a>Ответить на заявку</a></li>
+                <?php if (!empty($menu) && $menu == 'order_create') : ?>
+                    <li class="active"><a>Создать заказ</a></li>
                 <?php else : ?>
-                    <li><a href="#">Создать заказ</a></li>
+                    <li><a href="<?= route('order_create') ?>">Создать заказ</a></li>
                 <?php endif; ?>
 
-                <?php if (!empty($menu) && $menu == 'answer_create') : ?>
-                    <li class="active"><a>Ответить на заявку</a></li>
+                <?php if (!empty($menu) && $menu == 'order_list') : ?>
+                    <li class="active"><a>График исполнения</a></li>
                 <?php else : ?>
-                    <li><a href="#">График исполнения</a></li>
+                    <li><a href="<?= route('order_list') ?>">График исполнения</a></li>
                 <?php endif; ?>
 
                 <?php if (!empty($menu) && $menu == 'user') : ?>

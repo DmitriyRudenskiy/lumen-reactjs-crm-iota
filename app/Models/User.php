@@ -44,4 +44,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return self::find($id);
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

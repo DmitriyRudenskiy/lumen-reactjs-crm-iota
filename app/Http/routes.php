@@ -17,7 +17,11 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     $app->post('/customer/update', ['as' => 'customer_update', 'uses' => 'CustomerController@update']);
 
     // работа с заказами
-    $app->post('/order/add', ['as' => 'order_insert', 'uses' =>  'OrderController@insert']);
+    $app->get('/order/list', ['as' => 'order_list', 'uses' =>  'OrderController@index']);
+    $app->get('/order/create', ['as' => 'order_create', 'uses' =>  'OrderController@create']);
+    $app->get('/order/view/{id}', ['as' => 'order_view', 'uses' =>  'OrderController@view']);
+    $app->post('/order/insert', ['as' => 'order_insert', 'uses' =>  'OrderController@insert']);
+
 });
 
 // пользователи
