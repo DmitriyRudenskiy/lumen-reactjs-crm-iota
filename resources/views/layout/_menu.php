@@ -14,6 +14,12 @@
                     <li><a href="<?= route('order_list') ?>">График исполнения</a></li>
                 <?php endif; ?>
 
+                <?php if (!empty($menu) && $menu == 'task_list') : ?>
+                    <li class="active"><a>График загрузки</a></li>
+                <?php else : ?>
+                    <li><a href="<?= route('task_list') ?>">График загрузки</a></li>
+                <?php endif; ?>
+
                 <?php if (!empty($menu) && $menu == 'user') : ?>
                     <li class="active"><a>Пользователи</a></li>
                 <?php else : ?>
@@ -25,6 +31,8 @@
                 <?php else : ?>
                     <li><a href="<?= route('customer_list') ?>">Заказчики</a></li>
                 <?php endif; ?>
+
+                <li><a href="<?= route('user_logout') ?>">Выход</a></li>
             </ul>
         </nav>
         <h3 class="text-muted">CRM</h3>

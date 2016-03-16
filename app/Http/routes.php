@@ -3,9 +3,6 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     $app->get('/', ['as' => 'root', 'uses' =>  'DefaultController@index']);
     $app->get('/user/logout', ['as' => 'user_logout', 'uses' =>  'UserController@logout']);
 
-    $app->get('/form', ['as' => 'root', 'uses' =>  'DefaultController@form']);
-    $app->get('/table', ['as' => 'root', 'uses' =>  'DefaultController@table']);
-
     // пользователи
     $app->get('/user/list', ['as' => 'user_list', 'uses' =>  'UserController@index']);
     $app->get('/user/view/{id}', ['as' => 'user_view', 'uses' =>  'UserController@view']);
@@ -21,6 +18,11 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     $app->get('/order/create', ['as' => 'order_create', 'uses' =>  'OrderController@create']);
     $app->get('/order/view/{id}', ['as' => 'order_view', 'uses' =>  'OrderController@view']);
     $app->post('/order/insert', ['as' => 'order_insert', 'uses' =>  'OrderController@insert']);
+
+    // Список задачь
+    $app->get('/task', ['as' => 'task_list', 'uses' =>  'TaskController@index']);
+    $app->post('/task/insert', ['as' => 'task_insert', 'uses' =>  'TaskController@insert']);
+    $app->get('/task/get', ['as' => 'task_get', 'uses' =>  'TaskController@get']);
 
 });
 

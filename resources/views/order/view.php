@@ -51,34 +51,65 @@ $menu = 'user';
                         <td>Где лежит файл</td>
                         <td><?= $order->path ?></td>
                     </tr>
+
+                    <?php foreach ($order->task as $value) : ?>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p>Наименование загружаемой машины: <?= $value->printer->name ?></p>
+                            <p>Дата начала: <?= date("d.m.Y", strtotime($value->start_work)) ?></p>
+                            <p>Срок изготовления заказа, дни: <?= $value->days ?></p>
+                        </td>
+                    </tr>
+                    <?php endforeach;?>
                     </tbody>
                 </table>
 
-                <form class="form-horizontal" method="post" action="">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Наименование загружаемой машины</label>
-                        <div class="col-sm-8">
-                            <select  name="printer_id" class="form-control" required>
-                                <option value="">-</option>
-                                <option value="hp">hp</option>
-                                <option value="xerox">xerox</option>
-                            </select>
-                        </div>
-                    </div>
+                <div class="wall">
+                    <h3>Создание заявки на заказ</h3>
 
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Срок изготовления заказа, дни</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="days" class="form-control" required>
-                        </div>
-                    </div>
+                    <form class="form-horizontal" method="post" action="<?= route('task_insert') ?>">
 
-                    <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-8">
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Сохранить</button>
+                        <input type="hidden" name="order_id" value="<?= $order->id ?>">
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Наименование загружаемой машины</label>
+                            <div class="col-sm-8">
+                                <select name="printer_id" class="form-control" required>
+                                    <option value="">-</option>
+                                    <option value="1">hp</option>
+                                    <option value="2">xerox</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                </form>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Дата начала</label>
+                            <div class="col-sm-8">
+                                <div class="input-group date">
+                                    <input type="text" name="start_work" class="form-control datepicker" required>
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Срок изготовления заказа, дни</label>
+                            <div class="col-sm-4">
+                                <input type="text" name="days" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Создать</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>
