@@ -16,9 +16,26 @@ $menu = 'task_list'
                     </div>
                 <?php endif; ?>
 
+
                 <h2>График загрузки машин</h2>
 
-                <div class="col-lg-12">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only"></label>
+                        <select class="form-control" name="user_id">
+                            <option value="">менеджер</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only"></label>
+                        <select class="form-control" name="customer">
+                            <option value="">заказчик</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-default">Выбрать</button>
+                </form>
+
+
                     <table class="table table-striped table-hover" id="work_list" data-list="on">
                         <thead>
                             <th></th>
@@ -36,7 +53,6 @@ $menu = 'task_list'
                         <?php endfor; ?>
                         </tbody>
                     </table>
-                </div>
             </div>
         </div>
     </div>

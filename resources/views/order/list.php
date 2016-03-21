@@ -41,7 +41,7 @@ $menu = 'order_list'
                     </thead>
                     <tbody>
                     <?php foreach ($list as $value) : ?>
-                        <tr>
+                        <tr <?= ($value->task->count() > 0) ? 'class="success"' : 'class="danger"' ?>>
                             <td><a href="<?= route('order_view', ['id' => $value->id]) ?>" class="btn btn-link"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
                             <td><?= $value->customer ?></td>
                             <td><?= $value->name ?></td>

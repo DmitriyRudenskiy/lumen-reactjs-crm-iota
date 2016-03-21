@@ -3,16 +3,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Printer extends Model
+class PrinterType extends Model
 {
-    protected $table = 'printer';
+    protected $table = 'printer_type';
 
     public $timestamps = false;
-
-    public function printer()
-    {
-        return $this->belongsTo('App\Models\PrinterType', 'type_id');
-    }
 
     public function __toString()
     {

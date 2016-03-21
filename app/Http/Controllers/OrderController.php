@@ -62,6 +62,9 @@ class OrderController extends Controller
         $data['user_id'] = Auth::user()->id;
         list($day, $month, $year) = explode('.', $data['ready']);
         $data['ready'] = sprintf("%s-%s-%s", $year, $month, $day);
+        // $data['sum'] = $data[''] * $data[''];
+        $data['sum'] = 1;
+
 
         Order::forceCreate($data);
 

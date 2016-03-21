@@ -19,6 +19,7 @@ class CreateTaskTable extends Migration
             $table->integer('printer_id')->unsigned();
             $table->date('start_work');
             $table->integer('days')->unsigned();
+            $table->integer('price')->unsigned();
             $table->timestamps();
         });
     }

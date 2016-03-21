@@ -24,6 +24,14 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     $app->post('/task/insert', ['as' => 'task_insert', 'uses' =>  'TaskController@insert']);
     $app->get('/task/get', ['as' => 'task_get', 'uses' =>  'TaskController@get']);
 
+    // исполнители
+    $app->get('/printer/list', ['as' => 'printer_list', 'uses' =>  'PrinterController@index']);
+
+    // отчёты
+    $app->get('/report/printer', ['as' => 'report_index', 'uses' =>  'ReportController@index']);
+    $app->get('/report/printer', ['as' => 'report_printer', 'uses' =>  'ReportController@printer']);
+
+
 });
 
 // пользователи

@@ -32,6 +32,18 @@
                     <li><a href="<?= route('customer_list') ?>">Заказчики</a></li>
                 <?php endif; ?>
 
+                <?php if (!empty($menu) && $menu == 'printer') : ?>
+                    <li class="active"><a>Исполнители</a></li>
+                <?php else : ?>
+                    <li><a href="<?= route('printer_list') ?>">Исполнители</a></li>
+                <?php endif; ?>
+
+                <?php if (!empty($menu) && $menu == 'report') : ?>
+                    <li class="active"><a>Отчёты</a></li>
+                <?php else : ?>
+                    <li><a href="<?= route('report_index') ?>">Отчёты</a></li>
+                <?php endif; ?>
+
                 <li><a href="<?= route('user_logout') ?>">Выход</a></li>
             </ul>
         </nav>

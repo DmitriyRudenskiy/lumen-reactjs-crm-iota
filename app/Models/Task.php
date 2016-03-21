@@ -18,4 +18,9 @@ class Task extends Model
     {
         return $this->belongsTo('App\Models\Printer', 'printer_id');
     }
+
+    public function getReport($start = null, $finish = null)
+    {
+        return self::all();
+    }
 }

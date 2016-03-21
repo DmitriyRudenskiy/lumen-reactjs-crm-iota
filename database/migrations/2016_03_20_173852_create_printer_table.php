@@ -15,6 +15,7 @@ class CreatePrinterTable extends Migration
         Schema::create('printer', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name')->unique();
+            $table->integer('type_id')->unsigned();
         });
     }
 
