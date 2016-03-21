@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Printer;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,8 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return view('task.index', ['list' => null]);
+        $printer = Printer::where('type_id', 2)->get();
+        return view('task.index', ['printer' => $printer]);
     }
 
     public function get()
@@ -43,7 +45,7 @@ class TaskController extends Controller
 
     public function insert(Request $request)
     {
-        $data = $request->only(['order_id', 'printer_id', 'start_work', 'days']);
+        $data = $request->only(['order_id', 'printer_id', 'start_work', 'days', 'price']);
         $data['user_id'] = Auth::user()->id;
 
         list($day, $month, $year) = explode('.', $data['start_work']);

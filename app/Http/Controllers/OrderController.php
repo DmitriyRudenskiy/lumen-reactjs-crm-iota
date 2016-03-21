@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\Printer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Lumen\Routing\Controller;
@@ -40,8 +41,9 @@ class OrderController extends Controller
     public function view($id)
     {
         $order = $this->model->get($id);
+        $printer = Printer::all();
 
-        return view('order.view', ['order' => $order]);
+        return view('order.view', ['order' => $order, 'printer' => $printer]);
     }
 
     public function create()

@@ -35,7 +35,7 @@
                 <?php if (!empty($menu) && $menu == 'printer') : ?>
                     <li class="active"><a>Исполнители</a></li>
                 <?php else : ?>
-                    <li><a href="<?= route('printer_list') ?>">Исполнители</a></li>
+                    <li><a href="<?= route('printer_index') ?>">Исполнители</a></li>
                 <?php endif; ?>
 
                 <?php if (!empty($menu) && $menu == 'report') : ?>

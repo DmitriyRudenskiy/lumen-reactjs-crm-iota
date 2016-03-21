@@ -25,7 +25,10 @@ $app->group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], fun
     $app->get('/task/get', ['as' => 'task_get', 'uses' =>  'TaskController@get']);
 
     // исполнители
-    $app->get('/printer/list', ['as' => 'printer_list', 'uses' =>  'PrinterController@index']);
+    $app->get('/printer', ['as' => 'printer_index', 'uses' =>  'PrinterController@index']);
+    $app->get('/printer/create', ['as' => 'printer_create', 'uses' => 'PrinterController@create']);
+    $app->get('/printer/view/{id}', ['as' => 'printer_view', 'uses' => 'PrinterController@view']);
+    $app->post('/customer/update', ['as' => 'printer_update', 'uses' => 'PrinterController@update']);
 
     // отчёты
     $app->get('/report/printer', ['as' => 'report_index', 'uses' =>  'ReportController@index']);

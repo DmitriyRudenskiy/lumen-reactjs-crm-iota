@@ -12,18 +12,37 @@ class PrinterTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            'id' => 1,
-            'name' => 'hp'
+        foreach ($this->getData() as $value) {
+            Printer::forceCreate($value);
+        }
+    }
+
+    public function getData()
+    {
+        return [
+            [
+                'id' => 1,
+                'name' => 'Mimaki',
+                'type_id' => 3
+            ],
+            [
+                'id' => 2,
+                'name' => 'Термопресс плоский',
+                'type_id' => 3
+            ],
+            [
+                'id' => 3,
+                'name' => 'Силуэт',
+                'type_id' => 3
+            ],
+            [
+                'id' => 4,
+                'name' => 'Сублимация',
+                'type_id' => 3
+            ]
         ];
-
-        Printer::forceCreate($data);
-
-        $data = [
-            'id' => 2,
-            'name' => 'xerox'
-        ];
-
-        Printer::forceCreate($data);
     }
 }
+
+
+

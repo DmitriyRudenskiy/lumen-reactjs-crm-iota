@@ -9,7 +9,7 @@ class Printer extends Model
 
     public $timestamps = false;
 
-    public function printer()
+    public function type()
     {
         return $this->belongsTo('App\Models\PrinterType', 'type_id');
     }

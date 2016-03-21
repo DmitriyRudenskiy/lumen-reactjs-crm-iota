@@ -59,6 +59,7 @@ $menu = 'user';
                             <p>Наименование загружаемой машины: <?= $value->printer->name ?></p>
                             <p>Дата начала: <?= date("d.m.Y", strtotime($value->start_work)) ?></p>
                             <p>Срок изготовления заказа, дни: <?= $value->days ?></p>
+                            <p>Цена работы: <?= $value->price ?></p>
                         </td>
                     </tr>
                     <?php endforeach;?>
@@ -77,8 +78,9 @@ $menu = 'user';
                             <div class="col-sm-8">
                                 <select name="printer_id" class="form-control" required>
                                     <option value="">-</option>
-                                    <option value="1">hp</option>
-                                    <option value="2">xerox</option>
+                                    <?php foreach ($printer as $value) : ?>
+                                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>
